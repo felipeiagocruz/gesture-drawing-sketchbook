@@ -1,12 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Auth from "./components/Auth/Auth";
-import Add from "./components/Drawings/Add";
-import Collection from "./components/Drawings/Collection";
 import "./App.css";
+import { AuthContext } from "./contexts/AuthContext";
+import { Navigate } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
       <Auth />

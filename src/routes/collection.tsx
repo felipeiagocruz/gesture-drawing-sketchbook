@@ -3,21 +3,32 @@ import Add from "../components/Drawings/Add";
 import { auth } from "../services/firebase";
 import { Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 export default function CollectionPage() {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>();
+  const { isLoggedIn, setAuthState, name, photo, email } =
+    useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    setIsLoading(true);
     onAuthStateChanged(auth, function (user) {
       if (user) {
         console.log(user);
-        setIsLoggedIn(true);
+        setAuthState
+          ? setAuthState({
+              name: user.displayName,
+              photo: user.photoURL,
+              email: user.email,
+              isLoggedIn: true,
+            })
+          : null;
+        setIsLoading(false);
       } else {
-        setIsLoggedIn(false);
+        setAuthState ? setAuthState({ isLoggedIn: false }) : null;
+        setIsLoading(false);
       }
     });
-    setIsLoading(false);
   }, []);
   return (
     <div>
@@ -28,6 +39,7 @@ export default function CollectionPage() {
           ) : (
             <>
               <Add />
+              <p>aaaa{name}</p>
               <Collection />
             </>
           )}
