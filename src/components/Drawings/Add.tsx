@@ -11,7 +11,8 @@ const Button = () => {
     // Add a new document in collection "cities"
     await addDoc(ref, {
       name: "Los Angeles",
-      reference: "CA",
+      reference:
+        "https://i.pinimg.com/236x/91/2d/6f/912d6f086b9080aba5706fc98ce6e9ba.jpg",
       data: "USA",
       date: "4342",
     });
