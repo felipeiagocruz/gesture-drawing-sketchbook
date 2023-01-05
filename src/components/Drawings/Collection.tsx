@@ -1,5 +1,5 @@
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { db } from "../../services/firebase";
 import CollectionDrawn from "./CollectionDrawn";
 import classes from "./Collection.module.css";
@@ -15,6 +15,10 @@ const Collection = () => {
       setDrawings((prevArray) => [...prevArray, doc.data()]);
     });
   };
+
+  useEffect(() => {
+    reload();
+  }, []);
 
   return (
     <div>
