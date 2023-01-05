@@ -1,53 +1,32 @@
 import Collection from "../components/Drawings/Collection";
 import Add from "../components/Drawings/Add";
-import { auth } from "../services/firebase";
-import { Navigate } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import useAuthChecker from "../hooks/useAuthChecker";
 
 export default function CollectionPage() {
+  useAuthChecker();
   const { isLoggedIn, setAuthState, name, photo, email } =
     useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(true);
-    onAuthStateChanged(auth, function (user) {
-      if (user) {
-        console.log(user);
-        setAuthState
-          ? setAuthState({
-              name: user.displayName,
-              photo: user.photoURL,
-              email: user.email,
-              isLoggedIn: true,
-            })
-          : null;
-        setIsLoading(false);
-      } else {
-        setAuthState ? setAuthState({ isLoggedIn: false }) : null;
-        setIsLoading(false);
-      }
-    });
+    // setAuthState(authState || {isLoggedIn:false})
+
+    setIsLoading(false);
   }, []);
   return (
     <div>
-      {!isLoading ? (
+      {isLoggedIn ? (
         <>
-          {isLoggedIn == false ? (
-            <Navigate to="/" />
-          ) : (
-            <>
-              <Add />
-              <p>aaaa{name}</p>
-              <Collection />
-            </>
-          )}
+          <>
+            <Add />
+            <p>aaaa{name}</p>
+            <Collection />
+          </>
         </>
       ) : (
-        <>
-          <p>Loading...</p>
-        </>
+        <p>Loading...</p>
       )}
     </div>
   );

@@ -14,7 +14,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../services/firebase";
 
-declare interface Auth {
+export declare interface Auth {
   name?: string | null;
   email?: string | null;
   photo?: string | null;
