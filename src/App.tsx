@@ -10,8 +10,6 @@ function App() {
   return (
     <div className="App">
       <Auth />
-      <Add />
-      <Collection />
     </div>
   );
 }
