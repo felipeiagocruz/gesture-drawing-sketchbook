@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm i && npm run build
+      - run: npm i react-canvas-draw --save --legacy-peer-deps
+      - run: npm i --save-dev @types/react-canvas-draw
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
