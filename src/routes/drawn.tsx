@@ -38,13 +38,13 @@ export default function DrawnPage() {
   return (
     <div>
       {drawn ? (
-        <>
-          <p>Drawn id {id}</p>
-          <p>{drawn.name}</p>
-          <img src={drawn.reference}></img>
-          <p>{drawn.date}</p>
-          <p>{drawn.data}</p>
-        </>
+        <Drawn
+          id={id}
+          name={drawn.name}
+          reference={drawn.reference}
+          date={drawn.date}
+          data={drawn.data}
+        />
       ) : (
         <p>Loading...</p>
       )}
