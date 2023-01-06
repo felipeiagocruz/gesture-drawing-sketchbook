@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm i react-canvas-draw --save --legacy-peer-deps
-      - run: npm i --save-dev @types/react-canvas-draw
+      - run: npm i --save-dev @types/react-canvas-draw --legacy-peer-deps
       - run: npm i --save --legacy-peer-deps
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
