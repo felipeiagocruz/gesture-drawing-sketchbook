@@ -8,12 +8,13 @@ export default function useAuthChecker() {
   useEffect(() => {
     onAuthStateChanged(auth, function (user) {
       if (user) {
-        console.log(user);
+        console.log(user.uid);
         setAuthState
           ? setAuthState({
               name: user.displayName,
               photo: user.photoURL,
               email: user.email,
+              uid: user.uid,
               isLoggedIn: true,
             })
           : null;

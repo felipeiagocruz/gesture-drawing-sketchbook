@@ -6,6 +6,7 @@ import AuthProvider from "./contexts/AuthContext";
 import "./index.css";
 import Root from "./routes/root";
 import CollectionPage from "./routes/collection";
+import DrawnPage from "./routes/drawn";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/collection",
     element: <CollectionPage />,
+  },
+  {
+    path: "/drawn/:id",
+    element: <DrawnPage />,
   },
 ]);
 

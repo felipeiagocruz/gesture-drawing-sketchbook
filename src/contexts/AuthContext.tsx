@@ -18,6 +18,7 @@ export declare interface Auth {
   name?: string | null;
   email?: string | null;
   photo?: string | null;
+  uid?: string | null;
   login?: () => void;
   setAuthState?: Dispatch<SetStateAction<Auth>>;
   isLoggedIn?: boolean;
@@ -46,10 +47,12 @@ const AuthProvider: React.FC<Auth> = ({ children }) => {
               const token = credential.accessToken;
               // The signed-in user info.
               const user = result.user;
+              console.log(user.uid);
               setAuthState({
                 name: user.displayName,
                 email: user.email,
                 photo: user.photoURL,
+                uid: user.uid,
                 isLoggedIn: true,
                 setAuthState: setAuthState,
               });
@@ -80,6 +83,7 @@ const AuthProvider: React.FC<Auth> = ({ children }) => {
         name: authState.name,
         photo: authState.photo,
         email: authState.email,
+        uid: authState.uid,
         isLoggedIn: authState.isLoggedIn,
         setAuthState: setAuthState,
       }}

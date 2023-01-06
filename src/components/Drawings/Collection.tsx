@@ -12,7 +12,11 @@ const Collection = () => {
       collection(db, "users", "qsrhaPvaxAhPiNuQuou97X0Z1Eu2", "drawings")
     );
     snap.forEach((doc) => {
-      setDrawings((prevArray) => [...prevArray, doc.data()]);
+      console.log(doc.id);
+      setDrawings((prevArray) => [
+        ...prevArray,
+        { id: doc.id, data: doc.data() },
+      ]);
     });
   };
 
@@ -28,10 +32,12 @@ const Collection = () => {
         {drawings.map((drawn) => {
           return (
             <CollectionDrawn
-              name={drawn.name}
-              reference={drawn.reference}
-              date={drawn.date}
-              data={drawn.data}
+              key={drawn.id}
+              id={drawn.id}
+              name={drawn.data.name}
+              reference={drawn.data.reference}
+              date={drawn.data.date}
+              data={drawn.data.data}
             />
           );
         })}

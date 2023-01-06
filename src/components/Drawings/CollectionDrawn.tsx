@@ -1,4 +1,5 @@
 declare interface Drawn {
+  id: string;
   name: string;
   reference: string;
   date: string;
@@ -8,8 +9,11 @@ declare interface Drawn {
 const CollectionDrawn = (props: Drawn) => {
   return (
     <div>
+      <p>{props.id}</p>
       <p>{props.name}</p>
-      <img src={props.reference} />
+      <a href={`/drawn/${props.id}`}>
+        <img src={props.reference} />
+      </a>
       <p>{props.date}</p>
       <p>{props.data}</p>
     </div>
