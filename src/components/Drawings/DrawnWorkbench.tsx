@@ -29,9 +29,16 @@ const DrawnWorkbench = () => {
           lazyRadius={0}
           brushRadius={3}
           canvasWidth={1300}
-          canvasHeight={900}
+          canvasHeight={600}
         />
       </div>
+      <button
+        onClick={() => {
+          canvas ? canvas.current!.clear() : null;
+        }}
+      >
+        Clear
+      </button>
       <button
         onClick={() => {
           canvas ? canvas.current!.undo() : null;
@@ -51,7 +58,7 @@ const DrawnWorkbench = () => {
           setHeight(height + 10);
         }}
       >
-        heigt +
+        height +
       </button>
       <button
         onClick={() => {
