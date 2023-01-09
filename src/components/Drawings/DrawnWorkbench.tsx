@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, RefObject } from "react";
 import CanvasDraw from "react-canvas-draw";
 import classes from "./DrawnWorkbench.module.css";
 
@@ -6,6 +6,9 @@ const DrawnWorkbench = () => {
   const [width, setWidth] = useState(400);
   const [height, setHeight] = useState(400);
   const [tracing, setTracing] = useState(false);
+
+  const canvas = useRef() as RefObject<CanvasDraw>;
+
   return (
     <>
       <div className={classes.div}>
@@ -21,8 +24,21 @@ const DrawnWorkbench = () => {
             backgroundImage: `url("https://i.pinimg.com/236x/91/2d/6f/912d6f086b9080aba5706fc98ce6e9ba.jpg")`,
           }}
         ></div>
-        <CanvasDraw brushRadius={3} canvasWidth={1300} canvasHeight={900} />
+        <CanvasDraw
+          ref={canvas}
+          lazyRadius={0}
+          brushRadius={3}
+          canvasWidth={1300}
+          canvasHeight={900}
+        />
       </div>
+      <button
+        onClick={() => {
+          canvas ? canvas.current!.undo() : null;
+        }}
+      >
+        undo
+      </button>
       <button
         onClick={() => {
           setWidth(width + 10);
