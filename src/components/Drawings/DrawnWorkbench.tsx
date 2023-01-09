@@ -104,44 +104,9 @@ const DrawnWorkbench = () => {
             lazyRadius={0}
             brushRadius={brushRadius}
             canvasWidth={1300}
-            canvasHeight={600}
+            canvasHeight={500}
           />
         </div>
-        <button
-          onClick={() => {
-            canvas ? canvas.current!.clear() : null;
-          }}
-        >
-          Clear
-        </button>
-        <button
-          onClick={() => {
-            canvas ? canvas.current!.undo() : null;
-          }}
-        >
-          undo
-        </button>
-        <button
-          onClick={() => {
-            setWidth(width + 10);
-          }}
-        >
-          width +
-        </button>
-        <button
-          onClick={() => {
-            setHeight(height + 10);
-          }}
-        >
-          height +
-        </button>
-        <button
-          onClick={() => {
-            setTracing(!tracing);
-          }}
-        >
-          tracing
-        </button>
       </div>
     </>
   );
