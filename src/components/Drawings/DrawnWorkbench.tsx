@@ -2,12 +2,14 @@ import { useState, useRef, RefObject } from "react";
 import CanvasDraw from "react-canvas-draw";
 import classes from "./DrawnWorkbench.module.css";
 import { Tabs, Tab, Box, Slider, Button, Typography } from "@mui/material";
+import { MuiColorInput } from "mui-color-input";
 import TabPanel from "./TabPanel";
 
 const DrawnWorkbench = () => {
   const [width, setWidth] = useState(400);
   const [height, setHeight] = useState(400);
   const [tracing, setTracing] = useState(false);
+  const [color, setColor] = useState<string>("rgba(0,0,0,1)");
   const [brushRadius, setBrushRadius] = useState<number>(3);
   const [tab, setTabs] = useState("one");
 
@@ -19,6 +21,10 @@ const DrawnWorkbench = () => {
 
   const handleChangeBrush = (event: Event, newValue: number | number[]) => {
     setBrushRadius(newValue as number);
+  };
+
+  const handleChangeColor = (color: string) => {
+    setColor(color as string);
   };
 
   return (
@@ -69,7 +75,7 @@ const DrawnWorkbench = () => {
           </TabPanel>
 
           <TabPanel index={"two"} value={tab}>
-            <Box sx={{ width: "30%", display: "flex", paddingTop: "6px" }}>
+            <Box sx={{ width: "50%", display: "flex", paddingTop: "6px" }}>
               <Typography color={"black"} width={"60%"}>
                 Brush Radius
               </Typography>
@@ -80,6 +86,14 @@ const DrawnWorkbench = () => {
                 valueLabelDisplay="auto"
                 onChange={handleChangeBrush}
                 max={30}
+              />
+              <Typography color={"black"} width={"60%"}>
+                Brush Color
+              </Typography>
+              <MuiColorInput
+                className={classes.colorPicker}
+                value={color}
+                onChange={handleChangeColor}
               />
             </Box>
           </TabPanel>
@@ -105,6 +119,7 @@ const DrawnWorkbench = () => {
             brushRadius={brushRadius}
             canvasWidth={1300}
             canvasHeight={500}
+            brushColor={color}
           />
         </div>
       </div>

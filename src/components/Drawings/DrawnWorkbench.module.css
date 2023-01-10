@@ -17,3 +17,8 @@
 .workbenchMenu {
   background-color: white;
 }
+
+.colorPicker div {
+  height: 30px;
+  border: none;
+}
