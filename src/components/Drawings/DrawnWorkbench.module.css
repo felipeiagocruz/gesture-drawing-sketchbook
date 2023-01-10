@@ -16,9 +16,16 @@
 
 .workbenchMenu {
   background-color: white;
+  border: 10px solid #26ade4;
+  border-radius: 5px;
 }
 
 .colorPicker div {
   height: 30px;
   border: none;
+}
+
+.hr {
+  margin-bottom: 0px;
+  border-color: rgba(0, 0, 0, 0.1);
 }

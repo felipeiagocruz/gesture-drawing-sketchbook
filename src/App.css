@@ -3,4 +3,13 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #ffffff;
+  border-top-right-radius: 50px;
+
+  border-top-left-radius: 50px;
 }
+/* .color1 { #d1e751 };
+.color2 { #ffffff };
+.color3 { #000000 };
+.color4 { #4dbce9 };
+.color5 { #26ade4 }; */

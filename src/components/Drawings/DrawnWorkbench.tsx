@@ -1,4 +1,4 @@
-import { useState, useRef, RefObject } from "react";
+import { useState, useRef, RefObject, useEffect } from "react";
 import CanvasDraw from "react-canvas-draw";
 import classes from "./DrawnWorkbench.module.css";
 import { Tabs, Tab, Box, Slider, Button, Typography } from "@mui/material";
@@ -7,9 +7,10 @@ import TabPanel from "./TabPanel";
 
 const DrawnWorkbench = () => {
   const [width, setWidth] = useState<number>(400);
-  const [height, setHeight] = useState<number>(400);
+  const [height, setHeight] = useState<number>(500);
   const [tracing, setTracing] = useState(false);
   const [color, setColor] = useState<string>("rgba(0,0,0,1)");
+  const [corner, setCorner] = useState<string>("left");
   const [brushRadius, setBrushRadius] = useState<number>(3);
   const [tab, setTabs] = useState("one");
 
@@ -34,6 +35,19 @@ const DrawnWorkbench = () => {
   const handleChangeColor = (color: string) => {
     setColor(color as string);
   };
+
+  const undo = () => {
+    canvas ? canvas.current!.undo() : null;
+  };
+  const keydownHandler = (e: KeyboardEvent) => {
+    if (e.key === "z" && e.ctrlKey) undo();
+  };
+  useEffect(() => {
+    document.addEventListener("keydown", keydownHandler);
+    return () => {
+      document.removeEventListener("keydown", keydownHandler);
+    };
+  }, []);
 
   return (
     <>
@@ -83,8 +97,15 @@ const DrawnWorkbench = () => {
           </TabPanel>
 
           <TabPanel index={"two"} value={tab}>
-            <Box sx={{ width: "50%", display: "flex", paddingTop: "6px" }}>
-              <Typography color={"black"} width={"60%"}>
+            <Box
+              sx={{
+                width: "90%",
+                display: "flex",
+                paddingTop: "7px",
+                justifyContent: "space-around",
+              }}
+            >
+              <Typography paddingTop={"3px"} color={"black"} width={"25%"}>
                 Brush Radius
               </Typography>
               <Slider
@@ -94,8 +115,9 @@ const DrawnWorkbench = () => {
                 valueLabelDisplay="auto"
                 onChange={handleChangeBrush}
                 max={30}
+                min={1}
               />
-              <Typography color={"black"} width={"60%"}>
+              <Typography paddingTop={"3px"} color={"black"} width={"25%"}>
                 Brush Color
               </Typography>
               <MuiColorInput
@@ -107,11 +129,23 @@ const DrawnWorkbench = () => {
           </TabPanel>
 
           <TabPanel index={"three"} value={tab}>
-            <Box sx={{ width: "50%", display: "flex", paddingTop: "6px" }}>
-              <Typography color={"black"} width={"60%"}>
+            <Box
+              sx={{
+                width: "90%",
+                display: "flex",
+                paddingTop: "6px",
+                gap: "30px",
+              }}
+            >
+              <Typography
+                marginLeft={"20px"}
+                paddingTop={"3px"}
+                color={"black"}
+              >
                 Width
               </Typography>
               <Slider
+                style={{ width: "30%" }}
                 size="medium"
                 defaultValue={width}
                 aria-label="Default"
@@ -119,33 +153,55 @@ const DrawnWorkbench = () => {
                 onChange={handleChangeWidth}
                 max={700}
               />
-              <Typography color={"black"} width={"60%"}>
+              <Typography paddingTop={"3px"} color={"black"}>
                 Height
               </Typography>
               <Slider
+                style={{ width: "30%" }}
                 size="medium"
-                defaultValue={innerHeight}
+                defaultValue={height}
                 aria-label="Default"
                 valueLabelDisplay="auto"
                 onChange={handleChangeHeight}
                 max={700}
               />
             </Box>
+            {corner == "left" ? (
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  setCorner("right");
+                }}
+              >
+                To Right
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                onClick={() => {
+                  setCorner("left");
+                }}
+              >
+                To Left
+              </Button>
+            )}
           </TabPanel>
         </Box>
 
-        <hr />
+        <hr className={classes.hr} />
         <div className={classes.div}>
           <div
             className={classes.reference}
             style={{
               opacity: `${tracing ? "70" : "100"}%`,
-              left: `${tracing ? "50%" : "0"}`,
+              left: `${tracing ? "50%" : corner == "left" ? "0" : "100%"}`,
               top: `${tracing ? "50%" : "0"}`,
-              translate: `${tracing ? "-50% -50%" : "0"}`,
+              translate: `${
+                tracing ? "-50% -50%" : corner == "left" ? "0" : "-100%"
+              }`,
               height: `${height}px`,
               width: `${width}px`,
-              backgroundImage: `url("https://i.pinimg.com/236x/91/2d/6f/912d6f086b9080aba5706fc98ce6e9ba.jpg")`,
+              backgroundImage: `url("https://i.pinimg.com/originals/7b/a5/04/7ba504b73ad46105efa0f5b78cd1b932.jpg")`,
             }}
           ></div>
           <CanvasDraw
