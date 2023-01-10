@@ -6,8 +6,8 @@ import { MuiColorInput } from "mui-color-input";
 import TabPanel from "./TabPanel";
 
 const DrawnWorkbench = () => {
-  const [width, setWidth] = useState(400);
-  const [height, setHeight] = useState(400);
+  const [width, setWidth] = useState<number>(400);
+  const [height, setHeight] = useState<number>(400);
   const [tracing, setTracing] = useState(false);
   const [color, setColor] = useState<string>("rgba(0,0,0,1)");
   const [brushRadius, setBrushRadius] = useState<number>(3);
@@ -21,6 +21,14 @@ const DrawnWorkbench = () => {
 
   const handleChangeBrush = (event: Event, newValue: number | number[]) => {
     setBrushRadius(newValue as number);
+  };
+
+  const handleChangeWidth = (event: Event, newValue: number | number[]) => {
+    setWidth(newValue as number);
+  };
+
+  const handleChangeHeight = (event: Event, newValue: number | number[]) => {
+    setHeight(newValue as number);
   };
 
   const handleChangeColor = (color: string) => {
@@ -94,6 +102,33 @@ const DrawnWorkbench = () => {
                 className={classes.colorPicker}
                 value={color}
                 onChange={handleChangeColor}
+              />
+            </Box>
+          </TabPanel>
+
+          <TabPanel index={"three"} value={tab}>
+            <Box sx={{ width: "50%", display: "flex", paddingTop: "6px" }}>
+              <Typography color={"black"} width={"60%"}>
+                Width
+              </Typography>
+              <Slider
+                size="medium"
+                defaultValue={width}
+                aria-label="Default"
+                valueLabelDisplay="auto"
+                onChange={handleChangeWidth}
+                max={700}
+              />
+              <Typography color={"black"} width={"60%"}>
+                Height
+              </Typography>
+              <Slider
+                size="medium"
+                defaultValue={innerHeight}
+                aria-label="Default"
+                valueLabelDisplay="auto"
+                onChange={handleChangeHeight}
+                max={700}
               />
             </Box>
           </TabPanel>
