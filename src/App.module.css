@@ -1,13 +1,36 @@
 .div {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4rem;
   text-align: center;
   background-color: #ffffff;
   border-top-right-radius: 50px;
-
+  height: 100%;
   border-top-left-radius: 50px;
 }
+
+.divHeader {
+  display: flex;
+}
+
+.divHeaderText {
+  width: 50%;
+}
+
+.divHeaderImage {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 50%;
+}
+
+.headerImage {
+  object-fit: cover;
+  object-position: 20% 100%;
+  width: 60%;
+  height: 100%;
+}
+
 /* .color1 { #d1e751 };
 .color2 { #ffffff };
 .color3 { #000000 };
