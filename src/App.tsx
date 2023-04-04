@@ -9,70 +9,68 @@ function App() {
   return (
     <>
       <div className={classes.div}>
-        <div className={classes.divHeader}>
-          <div className={classes.divHeaderText}>
+        <div className={classes.divBackground}>
+          <div className={classes.divHeader}>
+            <div className={classes.divHeaderText}>
+              <Typography
+                textAlign={"left"}
+                fontSize={"50px"}
+                textTransform={"uppercase"}
+                color={"black"}
+              >
+                Gesture Drawing {"&"}
+              </Typography>
+              <Typography
+                textAlign={"left"}
+                fontSize={"50px"}
+                textTransform={"uppercase"}
+                color={"black"}
+                paddingBottom={"1rem"}
+              >
+                Tracing
+              </Typography>
+              <Typography
+                textAlign={"left"}
+                fontSize={"12px"}
+                textTransform={"uppercase"}
+                color={"black"}
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+                non. Numquam doloremque at nesciunt eligendi odio dicta
+                voluptate dolores accusamus unde voluptas, non ratione, maiores
+                consectetur corporis laborum quae delectus? Lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Ipsum, non. Numquam
+                doloremque at nesciunt eligendi odio dicta voluptate dolores
+                accusamus unde voluptas, non ratione, maiores consectetur
+                corporis laborum quae delectus? Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Ipsum, non. Numquam doloremque at
+                nesciunt eligendi odio dicta voluptate dolores accusamus unde
+                voluptas, non ratione, maiores consectetur corporis laborum quae
+                delectus?
+              </Typography>
+            </div>
+            <div className={classes.divHeaderImage}></div>
+          </div>
+          <div className={classes.divWorkbench}>
             <Typography
               textAlign={"left"}
               fontSize={"50px"}
               textTransform={"uppercase"}
               color={"black"}
             >
-              Gesture Drawing {"&"}
+              Let's
             </Typography>
             <Typography
               textAlign={"left"}
               fontSize={"50px"}
               textTransform={"uppercase"}
               color={"black"}
-              paddingBottom={"1rem"}
             >
-              Tracing
+              try it!
             </Typography>
-            <Typography
-              textAlign={"left"}
-              fontSize={"12px"}
-              textTransform={"uppercase"}
-              color={"black"}
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
-              non. Numquam doloremque at nesciunt eligendi odio dicta voluptate
-              dolores accusamus unde voluptas, non ratione, maiores consectetur
-              corporis laborum quae delectus? Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Ipsum, non. Numquam doloremque at
-              nesciunt eligendi odio dicta voluptate dolores accusamus unde
-              voluptas, non ratione, maiores consectetur corporis laborum quae
-              delectus? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Ipsum, non. Numquam doloremque at nesciunt eligendi odio dicta
-              voluptate dolores accusamus unde voluptas, non ratione, maiores
-              consectetur corporis laborum quae delectus?
-            </Typography>
-          </div>
-          <div className={classes.divHeaderImage}>
-            <img
-              className={classes.headerImage}
-              src="../public/gestureExample.jpg"
-            ></img>
-          </div>
-        </div>
-        <div className={classes.divWorkbench}>
-          <Typography
-            textAlign={"left"}
-            fontSize={"50px"}
-            textTransform={"uppercase"}
-            color={"black"}
-          >
-            Let's
-          </Typography>
-          <Typography
-            textAlign={"left"}
-            fontSize={"50px"}
-            textTransform={"uppercase"}
-            color={"black"}
-          >
-            try it!
-          </Typography>
 
-          <DrawnWorkbench />
+            <DrawnWorkbench />
+          </div>
         </div>
       </div>
     </>
