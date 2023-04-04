@@ -1,7 +1,6 @@
-import Auth from "./components/Auth/Auth";
+import Header from "../src/components/Header/Header";
 import classes from "./App.module.css";
 
-import { Link } from "react-router-dom";
 import DrawnWorkbench from "./components/Drawings/DrawnWorkbench";
 import { Typography } from "@mui/material";
 
@@ -9,6 +8,7 @@ function App() {
   return (
     <>
       <div className={classes.div}>
+        <Header />
         <div className={classes.divBackground}>
           <div className={classes.divHeader}>
             <div className={classes.divHeaderText}>
