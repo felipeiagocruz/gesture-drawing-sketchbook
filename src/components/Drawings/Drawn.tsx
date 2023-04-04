@@ -15,7 +15,7 @@ const Drawn = (props: Drawn) => {
         <p>Drawn id {props.id}</p>
         <p>{props.name}</p>
         <img src={props.reference}></img>
-        <CanvasDrawn brushRadius={8} />
+        <CanvasDrawn brushRadius={2} />
         <p>{props.date}</p>
         <p>{props.data}</p>
       </>

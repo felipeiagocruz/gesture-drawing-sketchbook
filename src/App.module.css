@@ -11,10 +11,20 @@
   border-top-right-radius: 50px;
   height: 100%;
   border-top-left-radius: 50px;
+  z-index: 0;
 }
 
 .divHeader {
   display: flex;
+  margin-bottom: 3rem;
+}
+
+.divHeader > * {
+  z-index: 2;
+}
+
+.div > * {
+  z-index: 2;
 }
 
 .divHeaderText {
@@ -25,12 +35,41 @@
   align-self: end;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 70vh;
   width: 50%;
   background-image: url("../gestureExample.jpg");
   background-size: contain;
   background-position: top;
   background-repeat: no-repeat;
+}
+
+.divBlueSkew {
+  position: absolute;
+  height: 50vh;
+  rotate: 45deg;
+  top: 170%;
+  left: -50%;
+  width: 200%;
+  background-color: #4dbce9;
+  z-index: 0;
+}
+
+.divVideo {
+  display: flex;
+  margin-bottom: 7rem;
+}
+
+.divVideo > * {
+  z-index: 2;
+}
+.divVideoText {
+  margin-left: 1rem;
+  width: 50%;
+}
+
+.divWorkbench > * {
+  position: relative;
+  z-index: 3;
 }
 
 /* .color1 { #d1e751 };
