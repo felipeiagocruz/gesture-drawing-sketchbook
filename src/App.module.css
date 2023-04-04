@@ -16,7 +16,7 @@
 
 .divHeader {
   display: flex;
-  margin-bottom: 3rem;
+  margin-bottom: 7rem;
 }
 
 .divHeader > * {
@@ -29,6 +29,12 @@
 
 .divHeaderText {
   width: 50%;
+}
+
+.buttonStartNow {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .divHeaderImage {
@@ -45,9 +51,9 @@
 
 .divBlueSkew {
   position: absolute;
-  height: 50vh;
+  height: 500px;
   rotate: 45deg;
-  top: 170%;
+  top: 1600px;
   left: -50%;
   width: 200%;
   background-color: #4dbce9;
