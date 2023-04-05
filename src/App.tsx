@@ -111,23 +111,16 @@ function App() {
                 One year plan to learn to drawn
               </Typography>
               <Typography
-                textAlign={"left"}
-                fontSize={"12px"}
-                textTransform={"uppercase"}
+                textAlign={"justify"}
+                lineHeight={1.7}
+                fontSize={"18px"}
                 color={"black"}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
-                non. Numquam doloremque at nesciunt eligendi odio dicta
-                voluptate dolores accusamus unde voluptas, non ratione, maiores
-                consectetur corporis laborum quae delectus? Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Ipsum, non. Numquam
-                doloremque at nesciunt eligendi odio dicta voluptate dolores
-                accusamus unde voluptas, non ratione, maiores consectetur
-                corporis laborum quae delectus? Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Ipsum, non. Numquam doloremque at
-                nesciunt eligendi odio dicta voluptate dolores accusamus unde
-                voluptas, non ratione, maiores consectetur corporis laborum quae
-                delectus?
+                This application was developed inspired by Marc Brunet's
+                one-year drawing learning plan, as seen in the video on the
+                side. One of the main exercises during the year is constant
+                practice of gesture drawing. Here you can create an image
+                library and track your progress.
               </Typography>
             </div>
           </div>
