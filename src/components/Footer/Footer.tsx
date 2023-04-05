@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <footer className={classes.div}>
       <Typography>
-        Made with coffe by Felipe Cruz{" "}
+        Made with coffee by Felipe Cruz{" "}
         <CoffeeIcon style={{ marginBottom: "-6px" }} />
       </Typography>
       <Typography sx={{ zIndex: "3", marginTop: 0 }}>
