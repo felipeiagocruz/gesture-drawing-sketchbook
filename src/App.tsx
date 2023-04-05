@@ -1,4 +1,5 @@
 import Header from "../src/components/Header/Header";
+import Footer from "../src/components/Footer/Footer";
 import classes from "./App.module.css";
 
 import DrawnWorkbench from "./components/Drawings/DrawnWorkbench";
@@ -146,6 +147,7 @@ function App() {
           </div>
         </div>
         <div className={classes.divBlueSkew}></div>
+        <Footer />
       </div>
     </>
   );
