@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
 import { Button } from "@mui/material";
 
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -16,6 +19,7 @@ const theme = createTheme({
 });
 
 const Header = () => {
+  const { isLoggedIn } = useContext(AuthContext);
   return (
     <div className={classes.div}>
       <ThemeProvider theme={theme}>
@@ -37,23 +41,25 @@ const Header = () => {
               Home
             </Link>
           </Button>
-          <Button
-            sx={{
-              width: 110,
-              height: 50,
-              borderRadius: 50,
-              textDecoration: "none",
-            }}
-            color="success"
-            variant="contained"
-          >
-            <Link
-              style={{ textDecoration: "none", color: "inherit" }}
-              to="/collection"
+          {isLoggedIn && (
+            <Button
+              sx={{
+                width: 110,
+                height: 50,
+                borderRadius: 50,
+                textDecoration: "none",
+              }}
+              color="success"
+              variant="contained"
             >
-              Collection
-            </Link>
-          </Button>
+              <Link
+                style={{ textDecoration: "none", color: "inherit" }}
+                to="/collection"
+              >
+                Collection
+              </Link>
+            </Button>
+          )}
           <Button
             sx={{
               width: 110,

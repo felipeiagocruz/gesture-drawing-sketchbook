@@ -2,10 +2,15 @@ import Header from "../src/components/Header/Header";
 import Footer from "../src/components/Footer/Footer";
 import classes from "./App.module.css";
 
+import { useContext } from "react";
+import { AuthContext } from "./contexts/AuthContext";
+
 import DrawnWorkbench from "./components/Drawings/DrawnWorkbench";
 import { Typography, Button } from "@mui/material";
 
 function App() {
+  const { isLoggedIn, setAuthState, name, photo, email } =
+    useContext(AuthContext);
   return (
     <>
       <div className={classes.div}>
