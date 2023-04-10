@@ -29,15 +29,15 @@ const Header = () => {
       </Typography>
       <Typography sx={{ zIndex: "3", marginTop: 0 }}>
         Visit me at{" "}
-        <Link to="https://github.com/felipeiagocruz/gesture-drawing-sketchbook">
+        <a href="https://github.com/felipeiagocruz/gesture-drawing-sketchbook">
           <GitHubIcon style={{ marginBottom: "-6px" }} />
-        </Link>
-        <Link to="https://twitter.com/FelipeICruz">
+        </a>
+        <a href="https://twitter.com/FelipeICruz">
           <TwitterIcon style={{ marginBottom: "-6px" }} />
-        </Link>
-        <Link to="https://br.linkedin.com/in/felipe-cruz-b88209155">
+        </a>
+        <a href="https://br.linkedin.com/in/felipe-cruz-b88209155">
           <LinkedInIcon style={{ marginBottom: "-6px" }} />
-        </Link>
+        </a>
       </Typography>
     </footer>
   );
