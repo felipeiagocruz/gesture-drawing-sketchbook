@@ -2,6 +2,8 @@ import Collection from "../components/Drawings/Collection";
 import Add from "../components/Drawings/Add";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import Board from "../components/Layout/Board";
+import WhiteBoard from "../components/Layout/WhiteBoard";
 
 import classes from "./collection.module.css";
 
@@ -16,20 +18,20 @@ export default function CollectionPage() {
     useContext(AuthContext);
 
   return (
-    <div className={classes.div}>
+    <Board>
       {isLoggedIn ? (
         <>
-          <>
-            <Header />
+          <Header />
+          <WhiteBoard>
             <Add />
             <p>{name}</p>
             <Collection />
-            <Footer />
-          </>
+          </WhiteBoard>
+          <Footer />
         </>
       ) : (
         <>{name == null ? <Navigate to="/" /> : <p>Loading...</p>}</>
       )}
-    </div>
+    </Board>
   );
 }

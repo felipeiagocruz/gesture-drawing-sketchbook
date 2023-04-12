@@ -1,5 +1,7 @@
 import Header from "../src/components/Header/Header";
 import Footer from "../src/components/Footer/Footer";
+import Board from "../src/components/Layout/Board";
+import WhiteBoard from "../src/components/Layout/WhiteBoard";
 import classes from "./App.module.css";
 
 import DrawnWorkbench from "./components/Drawings/DrawnWorkbench";
@@ -8,9 +10,9 @@ import { Typography, Button } from "@mui/material";
 function App() {
   return (
     <>
-      <div className={classes.div}>
+      <Board>
         <Header />
-        <div className={classes.divBackground}>
+        <WhiteBoard>
           <div className={classes.divHeader}>
             <div className={classes.divHeaderText}>
               <Typography
@@ -145,10 +147,10 @@ function App() {
 
             <DrawnWorkbench />
           </div>
-        </div>
+        </WhiteBoard>
         <div className={classes.divBlueSkew}></div>
         <Footer />
-      </div>
+      </Board>
     </>
   );
 }

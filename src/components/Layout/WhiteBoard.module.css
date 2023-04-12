@@ -1,0 +1,10 @@
+.divBackground {
+  padding: 4rem;
+  text-align: center;
+  background-color: #ffffff;
+  border-top-right-radius: 50px;
+  height: 100%;
+  border-top-left-radius: 50px;
+  z-index: 0;
+  color: black;
+}
