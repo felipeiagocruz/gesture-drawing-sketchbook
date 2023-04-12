@@ -1,5 +1,10 @@
 import Collection from "../components/Drawings/Collection";
 import Add from "../components/Drawings/Add";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+
+import classes from "./collection.module.css";
+
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import useAuthChecker from "../hooks/useAuthChecker";
@@ -11,13 +16,15 @@ export default function CollectionPage() {
     useContext(AuthContext);
 
   return (
-    <div>
+    <div className={classes.div}>
       {isLoggedIn ? (
         <>
           <>
+            <Header />
             <Add />
             <p>{name}</p>
             <Collection />
+            <Footer />
           </>
         </>
       ) : (
