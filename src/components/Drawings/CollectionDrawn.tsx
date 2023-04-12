@@ -1,3 +1,5 @@
+import classes from "./CollectionDrawn.module.css";
+
 declare interface Drawn {
   id: string;
   name: string;
@@ -8,7 +10,7 @@ declare interface Drawn {
 
 const CollectionDrawn = (props: Drawn) => {
   return (
-    <div>
+    <div className={classes.div}>
       <p>{props.id}</p>
       <p>{props.name}</p>
       <a href={`/drawn/${props.id}`}>

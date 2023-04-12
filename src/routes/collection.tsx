@@ -5,8 +5,6 @@ import Footer from "../components/Footer/Footer";
 import Board from "../components/Layout/Board";
 import WhiteBoard from "../components/Layout/WhiteBoard";
 
-import classes from "./collection.module.css";
-
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import useAuthChecker from "../hooks/useAuthChecker";
@@ -24,7 +22,6 @@ export default function CollectionPage() {
           <Header />
           <WhiteBoard>
             <Add />
-            <p>{name}</p>
             <Collection />
           </WhiteBoard>
           <Footer />
