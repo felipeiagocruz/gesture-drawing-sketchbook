@@ -29,7 +29,7 @@ const Header = () => {
       </Typography>
       <Typography sx={{ zIndex: "3", marginTop: 0 }}>
         Visit me at{" "}
-        <a href="https://github.com/felipeiagocruz/gesture-drawing-sketchbook">
+        <a href="https://github.com/felipeiagocruz">
           <GitHubIcon style={{ marginBottom: "-6px" }} />
         </a>
         <a href="https://twitter.com/FelipeICruz">
