@@ -42,7 +42,7 @@ const Header = () => {
           {isLoggedIn && (
             <Link
               style={{ textDecoration: "none", color: "inherit" }}
-              to="/collection"
+              to="/mydrawings"
             >
               <Button
                 sx={{
@@ -61,7 +61,7 @@ const Header = () => {
 
           <Link
             style={{ textDecoration: "none", color: "inherit" }}
-            to="/collection"
+            to="/mydrawings"
           >
             <Button
               sx={{

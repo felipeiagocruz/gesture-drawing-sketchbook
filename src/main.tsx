@@ -5,7 +5,7 @@ import ErrorPage from "./error-page";
 import AuthProvider from "./contexts/AuthContext";
 import "./index.css";
 import Root from "./routes/root";
-import CollectionPage from "./routes/collection";
+import CollectionPage from "./routes/mydrawings";
 import DrawnPage from "./routes/drawn";
 
 import "@fontsource/roboto/300.css";
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/collection",
+    path: "/mydrawings",
     element: <CollectionPage />,
   },
   {

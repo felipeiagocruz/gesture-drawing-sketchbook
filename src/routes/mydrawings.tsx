@@ -1,5 +1,4 @@
 import Collection from "../components/Drawings/Collection";
-import Add from "../components/Drawings/Add";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Board from "../components/Layout/Board";
@@ -21,7 +20,6 @@ export default function CollectionPage() {
         <>
           <Header />
           <WhiteBoard>
-            <Add />
             <Collection />
           </WhiteBoard>
           <Footer />

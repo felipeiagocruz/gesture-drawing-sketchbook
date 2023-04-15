@@ -1,7 +1,9 @@
 import { doc, addDoc, collection } from "firebase/firestore";
 import { db } from "../../services/firebase";
+import AddIcon from "@mui/icons-material/Add";
+import { Button } from "@mui/material";
 
-const Button = () => {
+const Add = () => {
   const add = async () => {
     console.log("Click");
     const ref = collection(
@@ -14,18 +16,20 @@ const Button = () => {
       reference:
         "https://i.pinimg.com/236x/91/2d/6f/912d6f086b9080aba5706fc98ce6e9ba.jpg",
       data: "USA",
-      date: "4342",
+      date: new Date().getTime(),
     });
   };
   return (
-    <button
+    <Button
+      variant="contained"
       onClick={() => {
         add();
       }}
+      startIcon={<AddIcon />}
     >
       Add
-    </button>
+    </Button>
   );
 };
 
-export default Button;
+export default Add;
