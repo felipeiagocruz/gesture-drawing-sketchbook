@@ -27,7 +27,7 @@ const Header = () => {
         Made with coffee by Felipe Cruz{" "}
         <CoffeeIcon style={{ marginBottom: "-6px" }} />
       </Typography>
-      <Typography sx={{ zIndex: "3", marginTop: 0 }}>
+      <Typography sx={{ zIndex: "3", paddingRight: "0.5rem", marginTop: 0 }}>
         Visit me at{" "}
         <a href="https://github.com/felipeiagocruz">
           <GitHubIcon style={{ marginBottom: "-6px" }} />

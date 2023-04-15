@@ -1,3 +1,36 @@
 .div {
   width: 30%;
+  position: relative;
+  margin: 1rem;
+  height: 500px;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.tag {
+  left: 0;
+  margin: 0;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  background-color: #26ade4;
+  color: #ffff;
+  display: inline;
+  border-radius: 5px;
+  position: absolute;
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 100% !important;
+  transform: translate(-100%, -100%);
+  background-color: #26ade4;
+  width: 20%;
+  border-radius: 5px;
+  color: white;
+}
+
+.buttons {
 }
