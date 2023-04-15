@@ -24,21 +24,7 @@ const Header = () => {
     <div className={classes.div}>
       <ThemeProvider theme={theme}>
         <div className={classes.items}>
-          <Button
-            sx={{
-              width: 110,
-              height: 50,
-              borderRadius: 50,
-              textDecoration: "none",
-            }}
-            color="success"
-            variant="contained"
-          >
-            <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
-              Home
-            </Link>
-          </Button>
-          {isLoggedIn && (
+          <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
             <Button
               sx={{
                 width: 110,
@@ -49,31 +35,47 @@ const Header = () => {
               color="success"
               variant="contained"
             >
-              <Link
-                style={{ textDecoration: "none", color: "inherit" }}
-                to="/collection"
-              >
-                Collection
-              </Link>
+              Home
             </Button>
-          )}
-          <Button
-            sx={{
-              width: 110,
-              height: 50,
-              borderRadius: 50,
-              textDecoration: "none",
-            }}
-            color="success"
-            variant="contained"
-          >
+          </Link>
+
+          {isLoggedIn && (
             <Link
               style={{ textDecoration: "none", color: "inherit" }}
               to="/collection"
             >
-              About us
+              <Button
+                sx={{
+                  width: 110,
+                  height: 50,
+                  borderRadius: 50,
+                  textDecoration: "none",
+                }}
+                color="success"
+                variant="contained"
+              >
+                Collection
+              </Button>
             </Link>
-          </Button>
+          )}
+
+          <Link
+            style={{ textDecoration: "none", color: "inherit" }}
+            to="/collection"
+          >
+            <Button
+              sx={{
+                width: 110,
+                height: 50,
+                borderRadius: 50,
+                textDecoration: "none",
+              }}
+              color="success"
+              variant="contained"
+            >
+              About us
+            </Button>
+          </Link>
         </div>
         <div className={classes.divLogin}>
           <Auth />
