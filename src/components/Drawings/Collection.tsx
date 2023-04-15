@@ -1,7 +1,7 @@
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../services/firebase";
-import CollectionDrawn from "./CollectionDrawn";
+import CollectionDrawn from "./MyDrawns";
 import classes from "./Collection.module.css";
 
 const Collection = () => {

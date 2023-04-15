@@ -27,7 +27,7 @@ const Header = () => {
           <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
             <Button
               sx={{
-                width: 110,
+                width: 140,
                 height: 50,
                 borderRadius: 50,
                 textDecoration: "none",
@@ -46,7 +46,7 @@ const Header = () => {
             >
               <Button
                 sx={{
-                  width: 110,
+                  width: 140,
                   height: 50,
                   borderRadius: 50,
                   textDecoration: "none",
@@ -54,7 +54,7 @@ const Header = () => {
                 color="success"
                 variant="contained"
               >
-                Collection
+                My drawings
               </Button>
             </Link>
           )}
@@ -65,7 +65,7 @@ const Header = () => {
           >
             <Button
               sx={{
-                width: 110,
+                width: 140,
                 height: 50,
                 borderRadius: 50,
                 textDecoration: "none",

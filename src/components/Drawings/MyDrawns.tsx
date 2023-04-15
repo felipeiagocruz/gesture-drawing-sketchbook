@@ -1,4 +1,4 @@
-import classes from "./CollectionDrawn.module.css";
+import classes from "./MyDrawns.module.css";
 import EditIcon from "@mui/icons-material/Edit";
 
 declare interface Drawn {
@@ -16,12 +16,13 @@ const CollectionDrawn = (props: Drawn) => {
       style={{ backgroundImage: `url("${props.reference}")` }}
     >
       <p className={classes.tag}>{props.name}</p>
-      <a href={`/drawn/${props.id}`}>{/* <img src={props.reference} /> */}</a>
-      <div className={classes.menu}>
-        <p className={classes.buttons}>
-          <EditIcon />
-        </p>
-      </div>
+      <a href={`/drawn/${props.id}`}>
+        <div className={classes.menu}>
+          <p className={classes.buttons}>
+            <EditIcon />
+          </p>
+        </div>
+      </a>
     </div>
   );
 };
