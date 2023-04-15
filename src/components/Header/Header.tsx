@@ -34,10 +34,7 @@ const Header = () => {
             color="success"
             variant="contained"
           >
-            <Link
-              style={{ textDecoration: "none", color: "inherit" }}
-              to="/collection"
-            >
+            <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
               Home
             </Link>
           </Button>
