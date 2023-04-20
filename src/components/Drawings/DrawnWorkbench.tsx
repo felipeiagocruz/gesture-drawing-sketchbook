@@ -5,7 +5,14 @@ import { Tabs, Tab, Box, Slider, Button, Typography } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
 import TabPanel from "./TabPanel";
 
-const DrawnWorkbench = () => {
+interface PropsDrawnWorkbench {
+  reference: string;
+  data: string;
+  heigth: number;
+  width: number;
+}
+
+const DrawnWorkbench = (props: PropsDrawnWorkbench) => {
   const [width, setWidth] = useState<number>(400);
   const [height, setHeight] = useState<number>(500);
   const [tracing, setTracing] = useState(false);
@@ -201,15 +208,19 @@ const DrawnWorkbench = () => {
               }`,
               height: `${height}px`,
               width: `${width}px`,
-              backgroundImage: `url("https://i.pinimg.com/originals/7b/a5/04/7ba504b73ad46105efa0f5b78cd1b932.jpg")`,
+              backgroundImage: `url(${
+                props.reference
+                  ? props.reference
+                  : "https://i.pinimg.com/originals/7b/a5/04/7ba504b73ad46105efa0f5b78cd1b932.jpg"
+              })`,
             }}
           ></div>
           <CanvasDraw
             ref={canvas}
             lazyRadius={0}
             brushRadius={brushRadius}
-            canvasWidth={1300}
-            canvasHeight={500}
+            canvasWidth={props.width || 1300}
+            canvasHeight={props.heigth || 500}
             brushColor={color}
           />
         </div>

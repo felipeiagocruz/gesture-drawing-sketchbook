@@ -145,7 +145,7 @@ function App() {
               try it!
             </Typography>
 
-            <DrawnWorkbench />
+            <DrawnWorkbench data="" reference="" />
           </div>
         </WhiteBoard>
         <div className={classes.divBlueSkew}></div>

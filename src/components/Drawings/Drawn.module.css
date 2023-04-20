@@ -1,0 +1,16 @@
+.menu {
+  position: relative;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuButtons {
+  position: absolute;
+  left: 100%;
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  transform: translate(-100%, 40%);
+  padding-right: 1.5rem;
+}

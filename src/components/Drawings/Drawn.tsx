@@ -1,4 +1,6 @@
-import CanvasDrawn from "react-canvas-draw";
+import { Typography, Button } from "@mui/material";
+import classes from "./Drawn.module.css";
+import DrawnWorkbench from "../Drawings/DrawnWorkbench";
 
 declare interface Drawn {
   id?: string;
@@ -12,12 +14,25 @@ const Drawn = (props: Drawn) => {
   return (
     <div>
       <>
-        <p>Drawn id {props.id}</p>
-        <p>{props.name}</p>
-        <img src={props.reference}></img>
-        <CanvasDrawn brushRadius={2} />
-        <p>{props.date}</p>
-        <p>{props.data}</p>
+        <div className={classes.menu}>
+          <Typography textAlign={"left"} fontSize={"50px"} color={"white"}>
+            {props.name}
+          </Typography>
+          <div className={classes.menuButtons}>
+            <Button variant="contained" sx={{ marginRight: "1rem" }}>
+              Save
+            </Button>
+            <Button variant="contained" sx={{ marginRight: "1rem" }}>
+              Close
+            </Button>
+          </div>
+        </div>
+        <DrawnWorkbench
+          data={props.data || ""}
+          reference={props.reference || ""}
+          heigth={window.innerHeight}
+          width={window.innerWidth}
+        />
       </>
     </div>
   );
