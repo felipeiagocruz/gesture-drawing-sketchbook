@@ -145,7 +145,16 @@ function App() {
               try it!
             </Typography>
 
-            <DrawnWorkbench data="" reference="" />
+            <DrawnWorkbench
+              data=""
+              reference=""
+              heigth={0}
+              width={0}
+              id={""}
+              setData={function (getData: string): Promise<void> {
+                throw new Error("Function not implemented.");
+              }}
+            />
           </div>
         </WhiteBoard>
         <div className={classes.divBlueSkew}></div>

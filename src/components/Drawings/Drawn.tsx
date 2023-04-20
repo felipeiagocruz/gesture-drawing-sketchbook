@@ -1,6 +1,7 @@
 import { Typography, Button } from "@mui/material";
 import classes from "./Drawn.module.css";
 import DrawnWorkbench from "../Drawings/DrawnWorkbench";
+import { Link } from "react-router-dom";
 
 declare interface Drawn {
   id?: string;
@@ -8,6 +9,7 @@ declare interface Drawn {
   reference?: string;
   data?: string;
   date?: string;
+  setData: (getData: string) => Promise<void>;
 }
 
 const Drawn = (props: Drawn) => {
@@ -22,9 +24,19 @@ const Drawn = (props: Drawn) => {
             <Button variant="contained" sx={{ marginRight: "1rem" }}>
               Save
             </Button>
-            <Button variant="contained" sx={{ marginRight: "1rem" }}>
-              Close
-            </Button>
+            <Link
+              style={{ textDecoration: "none", color: "inherit" }}
+              to="/mydrawings"
+            >
+              <Button
+                sx={{
+                  textDecoration: "none",
+                }}
+                variant="contained"
+              >
+                Close
+              </Button>
+            </Link>
           </div>
         </div>
         <DrawnWorkbench
@@ -32,6 +44,8 @@ const Drawn = (props: Drawn) => {
           reference={props.reference || ""}
           heigth={window.innerHeight}
           width={window.innerWidth}
+          setData={props.setData}
+          id={props.id || ""}
         />
       </>
     </div>

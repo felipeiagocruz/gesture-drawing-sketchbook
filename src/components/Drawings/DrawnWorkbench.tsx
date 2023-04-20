@@ -1,15 +1,21 @@
-import { useState, useRef, RefObject, useEffect } from "react";
+import { useState, useRef, RefObject, useEffect, useContext } from "react";
 import CanvasDraw from "react-canvas-draw";
 import classes from "./DrawnWorkbench.module.css";
 import { Tabs, Tab, Box, Slider, Button, Typography } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
 import TabPanel from "./TabPanel";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../../services/firebase";
+
+import { AuthContext } from "../../contexts/AuthContext";
 
 interface PropsDrawnWorkbench {
-  reference: string;
-  data: string;
+  reference?: string;
+  data?: string;
   heigth: number;
   width: number;
+  id: string;
+  setData: (getData: string) => Promise<void>;
 }
 
 const DrawnWorkbench = (props: PropsDrawnWorkbench) => {
@@ -49,6 +55,8 @@ const DrawnWorkbench = (props: PropsDrawnWorkbench) => {
   const keydownHandler = (e: KeyboardEvent) => {
     if (e.key === "z" && e.ctrlKey) undo();
   };
+
+  // canvas ? canvas.current!.getSaveData() : "null",
   useEffect(() => {
     document.addEventListener("keydown", keydownHandler);
     return () => {
@@ -66,6 +74,20 @@ const DrawnWorkbench = (props: PropsDrawnWorkbench) => {
             <Tab value="three" label="Reference" />
           </Tabs>
           <TabPanel index={"one"} value={tab}>
+            {props.id ? (
+              <Button
+                color="success"
+                variant="contained"
+                onClick={() => {
+                  props.setData(canvas ? canvas.current!.getSaveData() : "");
+                }}
+              >
+                Save
+              </Button>
+            ) : (
+              ""
+            )}
+
             {tracing ? (
               <Button
                 variant="outlined"
@@ -222,6 +244,7 @@ const DrawnWorkbench = (props: PropsDrawnWorkbench) => {
             canvasWidth={props.width || 1300}
             canvasHeight={props.heigth || 500}
             brushColor={color}
+            saveData={props.data}
           />
         </div>
       </div>
