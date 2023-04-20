@@ -1,9 +1,16 @@
 import { doc, addDoc, collection } from "firebase/firestore";
 import { db } from "../../services/firebase";
+import ReactDOM from "react-dom";
+
+import BackDrop from "../Layout/BackDrop";
+import Card from "../Layout/Card";
+
 import AddIcon from "@mui/icons-material/Add";
 import { Button } from "@mui/material";
+import { useState } from "react";
 
 const Add = () => {
+  const [addToggle, setAddToggle] = useState(false);
   const add = async () => {
     console.log("Click");
     const ref = collection(
@@ -20,15 +27,37 @@ const Add = () => {
     });
   };
   return (
-    <Button
-      variant="contained"
-      onClick={() => {
-        add();
-      }}
-      startIcon={<AddIcon />}
-    >
-      Add
-    </Button>
+    <>
+      <Button
+        variant="contained"
+        onClick={() => {
+          setAddToggle(!addToggle);
+        }}
+        startIcon={<AddIcon />}
+      >
+        Add
+      </Button>
+      {addToggle ? (
+        <>
+          {ReactDOM.createPortal(
+            <BackDrop
+              dismiss={() => {
+                setAddToggle(!addToggle);
+              }}
+            >
+              <Card>a</Card>
+            </BackDrop>,
+            document.getElementById("backdrop-root")!
+          )}
+          {ReactDOM.createPortal(
+            <div></div>,
+            document.getElementById("overlay-root")!
+          )}
+        </>
+      ) : (
+        ""
+      )}
+    </>
   );
 };
 
