@@ -4,14 +4,17 @@ import ReactDOM from "react-dom";
 
 import BackDrop from "../Layout/BackDrop";
 import Card from "../Layout/Card";
+import AddForm from "./AddForm";
 
 import AddIcon from "@mui/icons-material/Add";
 import { Button } from "@mui/material";
 import { useState } from "react";
 
 const Add = () => {
+  const [reference, setReference] = useState<string>("");
+  const [name, setName] = useState<string>("");
   const [addToggle, setAddToggle] = useState(false);
-  const add = async () => {
+  const handleAddDrawing = async () => {
     console.log("Click");
     const ref = collection(
       doc(db, "users", "qsrhaPvaxAhPiNuQuou97X0Z1Eu2"),
@@ -19,10 +22,9 @@ const Add = () => {
     );
     // Add a new document in collection "cities"
     await addDoc(ref, {
-      name: "Los Angeles",
-      reference:
-        "https://i.pinimg.com/236x/91/2d/6f/912d6f086b9080aba5706fc98ce6e9ba.jpg",
-      data: "USA",
+      name: name,
+      reference: reference,
+      data: "",
       date: new Date().getTime(),
     });
   };
@@ -44,13 +46,19 @@ const Add = () => {
               dismiss={() => {
                 setAddToggle(!addToggle);
               }}
-            >
-              <Card>a</Card>
-            </BackDrop>,
+            ></BackDrop>,
             document.getElementById("backdrop-root")!
           )}
           {ReactDOM.createPortal(
-            <div></div>,
+            <Card>
+              <AddForm
+                add={handleAddDrawing}
+                setReference={setReference}
+                setName={setName}
+                name={name}
+                reference={reference}
+              />
+            </Card>,
             document.getElementById("overlay-root")!
           )}
         </>

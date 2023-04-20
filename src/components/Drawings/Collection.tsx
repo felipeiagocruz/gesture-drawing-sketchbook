@@ -18,6 +18,7 @@ import ReplayIcon from "@mui/icons-material/Replay";
 const Collection = () => {
   const [drawings, setDrawings] = useState(Array());
   const reload = async () => {
+    console.log("TRIGGER!");
     setDrawings([]);
     const snap: QuerySnapshot<DocumentData> = await getDocs(
       collection(db, "users", "qsrhaPvaxAhPiNuQuou97X0Z1Eu2", "drawings")
@@ -30,6 +31,7 @@ const Collection = () => {
         { id: doc.id, data: doc.data() },
       ]);
     });
+    console.log("END!");
   };
 
   useEffect(() => {

@@ -8,7 +8,7 @@
   background-color: #ffffff;
   border-radius: 50px;
   height: 50%;
-  z-index: 0;
+  z-index: 999;
   color: black;
   width: 30%;
 }
