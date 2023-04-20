@@ -15,6 +15,11 @@ import classes from "./Collection.module.css";
 import { Typography, Button } from "@mui/material";
 import ReplayIcon from "@mui/icons-material/Replay";
 
+interface Drawing {
+  id: string;
+  data: any;
+}
+
 const Collection = () => {
   const [drawings, setDrawings] = useState(Array());
   const reload = async () => {
@@ -24,13 +29,12 @@ const Collection = () => {
       collection(db, "users", "qsrhaPvaxAhPiNuQuou97X0Z1Eu2", "drawings")
     );
     const q: Query<DocumentData> = query(snap.query, orderBy("time"));
+    const newDrawings: Drawing[] = [];
     snap.forEach((doc) => {
       console.log(doc.id);
-      setDrawings((prevArray) => [
-        ...prevArray,
-        { id: doc.id, data: doc.data() },
-      ]);
+      newDrawings.push({ id: doc.id, data: doc.data() });
     });
+    setDrawings(newDrawings);
     console.log("END!");
   };
 
