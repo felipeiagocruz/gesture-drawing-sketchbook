@@ -1,4 +1,5 @@
 import { Typography, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import classes from "./Drawn.module.css";
 import DrawnWorkbench from "../Drawings/DrawnWorkbench";
 import { Link } from "react-router-dom";
@@ -10,9 +11,11 @@ declare interface Drawn {
   data?: string;
   date?: string;
   setData: (getData: string) => Promise<void>;
+  deleteItem: () => void;
 }
 
 const Drawn = (props: Drawn) => {
+  const navigate = useNavigate();
   return (
     <div>
       <>
@@ -21,8 +24,17 @@ const Drawn = (props: Drawn) => {
             {props.name}
           </Typography>
           <div className={classes.menuButtons}>
-            <Button variant="contained" sx={{ marginRight: "1rem" }}>
-              Save
+            <Button
+              sx={{
+                textDecoration: "none",
+              }}
+              variant="contained"
+              onClick={() => {
+                props.deleteItem();
+                navigate("/mydrawings");
+              }}
+            >
+              Delete
             </Button>
             <Link
               style={{ textDecoration: "none", color: "inherit" }}

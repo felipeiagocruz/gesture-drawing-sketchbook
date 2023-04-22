@@ -1,5 +1,5 @@
 import Drawn from "../components/Drawings/Drawn";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { Navigate, useParams } from "react-router-dom";
 import { db } from "../services/firebase";
 import { useEffect, useContext, useState, useRef, RefObject } from "react";
@@ -19,6 +19,12 @@ export default function DrawnPage() {
   const { uid } = useContext(AuthContext);
   const { id } = useParams();
   const [drawn, setDrawn] = useState<DocumentData>();
+
+  const deleteItem = async () => {
+    const docRef = doc(db, `users/${uid}/drawings`, `${id}`);
+    await deleteDoc(docRef);
+  };
+
   const updateItem = async (getData: string) => {
     const docRef = doc(db, `users/${uid}/drawings`, `${id}`);
     // Set the 'capital' field of the city
@@ -56,6 +62,7 @@ export default function DrawnPage() {
             date={drawn.date}
             data={drawn.data}
             setData={updateItem}
+            deleteItem={deleteItem}
           />
         </>
       ) : (
