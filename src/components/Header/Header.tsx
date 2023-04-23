@@ -61,7 +61,7 @@ const Header = () => {
 
           <Link
             style={{ textDecoration: "none", color: "inherit" }}
-            to="/mydrawings"
+            to="/aboutus"
           >
             <Button
               sx={{

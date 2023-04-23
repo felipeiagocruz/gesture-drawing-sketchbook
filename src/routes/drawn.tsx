@@ -1,6 +1,6 @@
 import Drawn from "../components/Drawings/Drawn";
 import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { db } from "../services/firebase";
 import { useEffect, useContext, useState, useRef, RefObject } from "react";
 import { AuthContext } from "../contexts/AuthContext";

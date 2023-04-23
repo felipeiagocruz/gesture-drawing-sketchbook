@@ -7,6 +7,7 @@ import "./index.css";
 import Root from "./routes/root";
 import CollectionPage from "./routes/mydrawings";
 import DrawnPage from "./routes/drawn";
+import AboutusPage from "./routes/aboutus";
 
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/drawn/:id",
     element: <DrawnPage />,
+  },
+  {
+    path: "/aboutus",
+    element: <AboutusPage />,
   },
 ]);
 

@@ -4,7 +4,7 @@ import Footer from "../components/Footer/Footer";
 import Board from "../components/Layout/Board";
 import WhiteBoard from "../components/Layout/WhiteBoard";
 
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import useAuthChecker from "../hooks/useAuthChecker";
 import { Navigate } from "react-router-dom";
