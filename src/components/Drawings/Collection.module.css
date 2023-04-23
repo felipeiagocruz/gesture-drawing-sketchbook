@@ -21,3 +21,23 @@
   transform: translate(-100%, 40%);
   padding-right: 1.5rem;
 }
+
+.divImage {
+  align-self: end;
+  display: flex;
+  justify-content: center;
+  height: 40vh;
+  width: 50%;
+  background-image: url("../gestureEmpty.jpg");
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.divEmpty {
+  display: flex;
+}
+
+.divEmptyTexts {
+  padding: 4rem 0rem;
+}

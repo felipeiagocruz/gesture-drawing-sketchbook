@@ -27,6 +27,7 @@ const Drawn = (props: Drawn) => {
             <Button
               sx={{
                 textDecoration: "none",
+                marginRight: "1rem",
               }}
               variant="contained"
               onClick={() => {

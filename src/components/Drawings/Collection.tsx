@@ -65,20 +65,34 @@ const Collection = () => {
           <Add />
         </div>
       </div>
-      <div className={classes.div}>
-        {drawings.map((drawn) => {
-          return (
-            <CollectionDrawn
-              key={drawn.id}
-              id={drawn.id}
-              name={drawn.data.name}
-              reference={drawn.data.reference}
-              date={drawn.data.date}
-              data={drawn.data.data}
-            />
-          );
-        })}
-      </div>
+      {drawings.length !== 0 ? (
+        <div className={classes.div}>
+          {drawings.map((drawn) => {
+            return (
+              <CollectionDrawn
+                key={drawn.id}
+                id={drawn.id}
+                name={drawn.data.name}
+                reference={drawn.data.reference}
+                date={drawn.data.date}
+                data={drawn.data.data}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div className={classes.divEmpty}>
+          <div className={classes.divImage}></div>
+          <div className={classes.divEmptyTexts}>
+            <Typography textAlign={"left"} fontSize={"30px"} color={"black"}>
+              It's so empty here...
+            </Typography>
+            <Typography textAlign={"left"} fontSize={"30px"} color={"black"}>
+              Add a new drawing by clicking on the button above.
+            </Typography>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
